@@ -1,0 +1,268 @@
+:root {
+  --bg: #0d1321;
+  --surface: #151f34;
+  --surface-2: #1e2a43;
+  --text: #eef6ff;
+  --muted: #96a6c4;
+  --accent: #14f1d9;
+  --danger: #ff5f8f;
+  --border: #2a3958;
+  --radius: 16px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 20% 0%, #1a2742 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+input[type='checkbox'] {
+  width: auto;
+}
+
+input,
+select {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 0.65rem 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+button,
+.button-link {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+  background: linear-gradient(120deg, var(--accent), #4cd4ff);
+  color: #041015;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+button:hover,
+.button-link:hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.ghost,
+.button-link.ghost {
+  color: var(--text);
+  border-color: var(--border);
+  background: transparent;
+}
+
+button.danger {
+  background: rgba(255, 95, 143, 0.2);
+  color: #ffd2e1;
+  border-color: rgba(255, 95, 143, 0.5);
+}
+
+.button-link.accent {
+  background: linear-gradient(120deg, #14f1d9, #8eff7d);
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13, 19, 33, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.topbar h1 {
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.content {
+  padding: 1rem;
+  padding-bottom: 6rem;
+}
+
+.stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card {
+  background: rgba(21, 31, 52, 0.88);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.card h2,
+.card h3,
+.card p {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.row.spread {
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.muted-text {
+  color: var(--muted);
+}
+
+.accent-text {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.plan-card {
+  border-left: 4px solid var(--accent);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-height: 190px;
+  overflow: auto;
+}
+
+.chip {
+  background: #1a2845;
+  color: var(--text);
+  border-color: var(--border);
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+  padding: 0.6rem;
+  background: rgba(11, 16, 28, 0.92);
+  border-top: 1px solid var(--border);
+}
+
+.nav-item {
+  text-align: center;
+  padding: 0.55rem 0.2rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-item.active {
+  color: var(--accent);
+  background: rgba(20, 241, 217, 0.15);
+}
+
+.swatch {
+  width: 34px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid transparent;
+  background: var(--swatch-color);
+}
+
+.swatch.selected {
+  border-color: #fff;
+}
+
+.fade-in {
+  animation: fadeIn 260ms ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 900px) {
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+  }
+
+  .bottom-nav {
+    position: sticky;
+    top: 4.1rem;
+    bottom: auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    max-width: 860px;
+    margin: 0 auto 1rem;
+    background: rgba(17, 24, 39, 0.9);
+  }
+}
