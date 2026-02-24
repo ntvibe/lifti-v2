@@ -1,0 +1,1 @@
+{"name":"Lifti Trainer","short_name":"Lifti","description":"Gym training tracker with workout plans and session history.","start_url":"/lifti-v2/","display":"standalone","background_color":"#0d1321","theme_color":"#0d1321","lang":"en","scope":"/lifti-v2/","icons":[{"src":"vite.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
